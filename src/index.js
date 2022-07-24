@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
+
 class Hello extends React.Component {
   render() {
     return (
@@ -12,4 +13,14 @@ class Hello extends React.Component {
   }
 }
 
-root.render(<Hello />);
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Hello />
+      </div>
+    );
+  }
+}
+
+root.render(<App />);

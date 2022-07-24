@@ -3,22 +3,11 @@ import ReactDOM from "react-dom";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-class Message extends React.Component {
+class Welcome extends React.Component {
   render() {
     return (
       <div>
-        <p>What a beautiful day!</p>
-      </div>
-    );
-  }
-}
-
-class Hello extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Hello, World!</h1>
-        <Message />
+        <p>Welcome, {this.props.name}!</p>
       </div>
     );
   }
@@ -28,7 +17,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Hello />
+        <Welcome name="Alessio" />
       </div>
     );
   }

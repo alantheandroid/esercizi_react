@@ -38,7 +38,7 @@
 - ~~components-04~~
 - ~~components-06~~
 - ~~components-07~~
-- props-01
+- ~~props-01~~
 - props-02
 - props-03
 - props-04

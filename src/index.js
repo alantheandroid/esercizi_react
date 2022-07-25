@@ -13,14 +13,22 @@ class Welcome extends React.Component {
   }
 }
 
+Welcome.defaultProps = {
+  name: "Alessio",
+};
+
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Welcome name="Alessio" />
+        <Welcome />
       </div>
     );
   }
 }
 
-root.render(<App />);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

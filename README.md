@@ -39,7 +39,7 @@
 - ~~components-06~~
 - ~~components-07~~
 - ~~props-01~~
-- props-02
+- ~~props-02~~
 - props-03
 - props-04
 - props-05
@@ -54,7 +54,6 @@
 - component-lifecycle-01
 
 </details>
-
 <details>
 <summary>
 

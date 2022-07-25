@@ -8,6 +8,7 @@ class Welcome extends React.Component {
     return (
       <div>
         <p>Welcome, {this.props.name}!</p>
+        <p>Your age is {this.props.age}</p>
       </div>
     );
   }
@@ -21,7 +22,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Welcome />
+        <Welcome age="28" />
       </div>
     );
   }

@@ -14,7 +14,7 @@ class Welcome extends React.Component {
     return (
       <div>
         <p>Welcome, {this.props.name}!</p>
-        <Age age={<strong>28</strong>} />
+        <Age age={this.props.age} />
       </div>
     );
   }
@@ -28,7 +28,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Welcome />
+        <Welcome age={<strong>28</strong>} />
       </div>
     );
   }

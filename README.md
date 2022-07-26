@@ -44,7 +44,7 @@
 - ~~props-04~~
 - ~~props-05~~
 - ~~conditional-rendering-01~~
-- conditional-rendering-02
+- ~~conditional-rendering-02~~
 - conditional-rendering-03
 - conditional-rendering-04
 - conditional-rendering-05

@@ -1,46 +1,37 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-class Age extends React.Component {
+class Counter extends React.Component {
+  state = {
+    count: 0,
+  };
+
+  constructor(props) {
+    super(props);
+
+    setInterval(() => {
+      this.setState({
+        count: this.state.count + 1,
+      });
+    }, 1000);
+  }
+
   render() {
     return (
       <div>
-        {this.props.age > 18 ? (
-          <p>
-            Your age is <strong>{this.props.age}</strong>
-          </p>
-        ) : (
-          <p>You are very young!</p>
-        )}
+        <h1>Count: {this.state.count}</h1>
       </div>
     );
   }
 }
-
-class Welcome extends React.Component {
-  render() {
-    return (
-      <div>
-        <p>Welcome, {this.props.name}!</p>
-        {!!this.props.age && this.props.name === "John" && (
-          <Age age={this.props.age} />
-        )}
-      </div>
-    );
-  }
-}
-
-Welcome.defaultProps = {
-  name: "Alessio",
-};
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Welcome age={16} name={"John"} />
+        <Counter />
       </div>
     );
   }

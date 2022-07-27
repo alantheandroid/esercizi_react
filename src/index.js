@@ -5,7 +5,7 @@ const root = ReactDOM.createRoot(document.querySelector("#root"));
 
 class Counter extends React.Component {
   state = {
-    count: 0,
+    count: this.props.initialValue,
   };
 
   constructor(props) {
@@ -13,9 +13,9 @@ class Counter extends React.Component {
 
     setInterval(() => {
       this.setState({
-        count: this.state.count + 1,
+        count: this.state.count + this.props.incrementAmount,
       });
-    }, 1000);
+    }, this.props.incrementInterval);
   }
 
   render() {
@@ -31,7 +31,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Counter />
+        <Counter
+          initialValue={0}
+          incrementInterval={1000}
+          incrementAmount={1}
+        />
       </div>
     );
   }

@@ -50,7 +50,7 @@
 - ~~conditional-rendering-05~~
 - ~~state-01~~
 - ~~state-03~~
-- state-04
+- ~~state-04~~
 - component-lifecycle-01
 
 </details>

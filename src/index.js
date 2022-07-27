@@ -3,6 +3,12 @@ import ReactDOM from "react-dom/client";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
+class CounterDisplay extends React.Component {
+  render() {
+    return <h1>Count: {this.props.count}</h1>;
+  }
+}
+
 class Counter extends React.Component {
   state = {
     count: this.props.initialValue,
@@ -21,7 +27,7 @@ class Counter extends React.Component {
   render() {
     return (
       <div>
-        <h1>Count: {this.state.count}</h1>
+        <CounterDisplay count={this.state.count} />
       </div>
     );
   }

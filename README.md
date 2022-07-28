@@ -28,7 +28,7 @@
 <details>
 <summary>
 
-## basic-concepts
+## ~~basic-concepts~~
 
 </summary>
 
@@ -61,7 +61,7 @@
 
 </summary>
 
-- events-01
+- ~~events-01~~
 - events-03
 - forms-01
 - forms-02

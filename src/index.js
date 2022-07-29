@@ -3,15 +3,15 @@ import ReactDOM from "react-dom/client";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-class ClickCounter extends React.Component {
+class ClickTracker extends React.Component {
   state = {
-    count: 0,
+    button: "",
   };
 
-  handleButtonClick = () => {
-    this.setState((state) => {
+  handleButtonTracker = (event) => {
+    this.setState(() => {
       return {
-        count: state.count + 1,
+        button: event.target.name,
       };
     });
   };
@@ -19,8 +19,28 @@ class ClickCounter extends React.Component {
   render() {
     return (
       <div>
-        <h1>Counter : {this.state.count}</h1>
-        <button onClick={this.handleButtonClick}>Increment</button>
+        <h1>You just pressed: {this.state.button}</h1>
+        <button
+          type="button"
+          name="Button 1"
+          onClick={this.handleButtonTracker}
+        >
+          Button 1
+        </button>
+        <button
+          type="button"
+          name="Button 2"
+          onClick={this.handleButtonTracker}
+        >
+          Button 2
+        </button>
+        <button
+          type="button"
+          name="Button 3"
+          onClick={this.handleButtonTracker}
+        >
+          Button 3
+        </button>
       </div>
     );
   }
@@ -30,7 +50,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <ClickCounter />
+        <ClickTracker />
       </div>
     );
   }

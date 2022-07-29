@@ -3,44 +3,27 @@ import ReactDOM from "react-dom/client";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-class ClickTracker extends React.Component {
-  state = {
-    button: "",
-  };
+class Welcome extends React.Component {
+  render() {
+    return <p>Welcome, {this.props.username}</p>;
+  }
+}
 
-  handleButtonTracker = (event) => {
-    this.setState(() => {
-      return {
-        button: event.target.name,
-      };
-    });
+class InteractiveWelcome extends React.Component {
+  state = { username: "" };
+
+  handleUsernameInputChange = (event) => {
+    this.setState({ username: event.target.value });
   };
 
   render() {
     return (
       <div>
-        <h1>You just pressed: {this.state.button}</h1>
-        <button
-          type="button"
-          name="Button 1"
-          onClick={this.handleButtonTracker}
-        >
-          Button 1
-        </button>
-        <button
-          type="button"
-          name="Button 2"
-          onClick={this.handleButtonTracker}
-        >
-          Button 2
-        </button>
-        <button
-          type="button"
-          name="Button 3"
-          onClick={this.handleButtonTracker}
-        >
-          Button 3
-        </button>
+        <input
+          value={this.state.username}
+          onChange={this.handleUsernameInputChange}
+        ></input>
+        <Welcome username={this.state.username} />
       </div>
     );
   }
@@ -50,7 +33,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <ClickTracker />
+        <InteractiveWelcome />
       </div>
     );
   }

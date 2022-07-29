@@ -14,4 +14,11 @@ label {
 
 input {
   margin-left: 12px;
+  border-radius: 6px;
+}
+
+input[name="reset"] {
+  float: right;
+  background-color: black;
+  color: white;
 }

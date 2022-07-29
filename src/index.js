@@ -11,6 +11,14 @@ class Login extends React.Component {
     remember: false,
   };
 
+  resetState = () => {
+    this.setState({
+      username: "",
+      password: "",
+      remember: false,
+    });
+  };
+
   handleInputChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -69,6 +77,12 @@ class Login extends React.Component {
                 }}
               ></input>
             </label>
+            <input
+              type="button"
+              name="reset"
+              value="Reset"
+              onClick={this.resetState}
+            ></input>
           </fieldset>
         </form>
       </div>

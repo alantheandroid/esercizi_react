@@ -3,27 +3,30 @@ import ReactDOM from "react-dom/client";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-class Welcome extends React.Component {
-  render() {
-    return <p>Welcome, {this.props.username}</p>;
-  }
-}
-
-class InteractiveWelcome extends React.Component {
-  state = { username: "" };
-
-  handleUsernameInputChange = (event) => {
-    this.setState({ username: event.target.value });
-  };
+class Login extends React.Component {
+  state = {};
 
   render() {
     return (
       <div>
-        <input
-          value={this.state.username}
-          onChange={this.handleUsernameInputChange}
-        ></input>
-        <Welcome username={this.state.username} />
+        <form>
+          <label>
+            Username
+            <input type="text" name="Username" autoComplete="username"></input>
+          </label>
+          <label>
+            Password
+            <input
+              type="password"
+              name="Password"
+              autoComplete="current-password"
+            ></input>
+          </label>
+          <label>
+            Remember
+            <input type="checkbox" name="Checkbox"></input>
+          </label>
+        </form>
       </div>
     );
   }
@@ -33,7 +36,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <InteractiveWelcome />
+        <Login />
       </div>
     );
   }

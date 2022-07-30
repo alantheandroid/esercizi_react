@@ -1,39 +1,30 @@
-import React from "react";
+import React, { createRef } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-class Login extends React.Component {
-  state = {
-    username: "",
-    password: "",
-    remember: false,
-  };
+class UncontrolledLogin extends React.Component {
+  _formRef = createRef();
 
-  resetState = () => {
-    this.setState({
-      username: "",
-      password: "",
-      remember: false,
-    });
-  };
+  handleFormSubmit = (event) => {
+    event.preventDefault();
 
-  handleInputChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    const type = event.target.type;
-    const checked = event.target.checked;
+    const username = event.target.elements.username.value;
+    const password = event.target.elements.password.value;
+    const remember = event.target.elements.remember.checked;
 
-    this.setState({
-      [name]: type === "checkbox" ? checked : value,
+    console.log({
+      username,
+      password,
+      remember,
     });
   };
 
   render() {
     return (
       <div>
-        <form>
+        <form ref={this._formRef} onSubmit={this.handleFormSubmit}>
           <fieldset>
             <legend>Form</legend>
             <label>
@@ -41,8 +32,6 @@ class Login extends React.Component {
               <input
                 type="text"
                 name="username"
-                value={this.state.username}
-                onChange={this.handleInputChange}
                 autoComplete="username"
               ></input>
             </label>
@@ -51,8 +40,6 @@ class Login extends React.Component {
               <input
                 type="password"
                 name="password"
-                value={this.state.password}
-                onChange={this.handleInputChange}
                 autoComplete="current-password"
               ></input>
             </label>
@@ -61,28 +48,18 @@ class Login extends React.Component {
               <input
                 type="checkbox"
                 name="remember"
-                checked={this.state.remember}
-                onChange={this.handleInputChange}
+                /* checked={this.state.remember} */
               ></input>
             </label>
             <label>
               Click to
-              <input
-                type="button"
-                name="login"
-                value="Login"
-                disabled={!(this.state.username && this.state.password)}
-                onClick={() => {
-                  this.props.onLogin(this.state);
-                }}
-              ></input>
+              <button type="submit" name="login">
+                Login
+              </button>
             </label>
-            <input
-              type="button"
-              name="reset"
-              value="Reset"
-              onClick={this.resetState}
-            ></input>
+            <button type="reset" name="reset">
+              Reset
+            </button>
           </fieldset>
         </form>
       </div>
@@ -91,17 +68,10 @@ class Login extends React.Component {
 }
 
 class App extends React.Component {
-  state = {};
-
-  onLogin = (childState) => {
-    console.log(childState);
-    this.setState({ ...childState });
-  };
-
   render() {
     return (
       <div>
-        <Login onLogin={this.onLogin} />
+        <UncontrolledLogin />
       </div>
     );
   }

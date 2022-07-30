@@ -12,12 +12,13 @@ label {
   margin-bottom: 12px;
 }
 
-input {
+input,
+button {
   margin-left: 12px;
   border-radius: 6px;
 }
 
-input[name="reset"] {
+button[type="reset"] {
   float: right;
   background-color: black;
   color: white;

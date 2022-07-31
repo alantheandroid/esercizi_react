@@ -4,65 +4,41 @@ import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-class UncontrolledLogin extends React.Component {
-  _formRef = createRef();
+class TodoList extends React.Component {
+  state = { items: ["navbar", "hero-section", "cards", "footer"], newItem: "" };
 
-  handleFormSubmit = (event) => {
-    event.preventDefault();
+  _newItemRef = createRef();
 
-    const username = event.target.elements.username.value;
-    const password = event.target.elements.password.value;
-    const remember = event.target.elements.remember.checked;
+  handleInputChange = () => {
+    this.setState({
+      newItem: this._newItemRef.current.value,
+    });
+  };
 
-    console.log({
-      username,
-      password,
-      remember,
+  addListItem = () => {
+    this.setState({
+      items: [...this.state.items, this.state.newItem],
     });
   };
 
   render() {
+    const todo = this.state.items.map((item) => (
+      <li key={item.toString()}>{item}</li>
+    ));
+
     return (
       <div>
-        <form ref={this._formRef} onSubmit={this.handleFormSubmit}>
-          <fieldset>
-            <legend>Form</legend>
-            <label>
-              Username
-              <input
-                type="text"
-                name="username"
-                autoComplete="username"
-                autoFocus
-              ></input>
-            </label>
-            <label>
-              Password
-              <input
-                type="password"
-                name="password"
-                autoComplete="current-password"
-              ></input>
-            </label>
-            <label>
-              Remember?
-              <input
-                type="checkbox"
-                name="remember"
-                /* checked={this.state.remember} */
-              ></input>
-            </label>
-            <label>
-              Click to
-              <button type="submit" name="login">
-                Login
-              </button>
-            </label>
-            <button type="reset" name="reset">
-              Reset
-            </button>
-          </fieldset>
-        </form>
+        <ul>{todo}</ul>
+        <input
+          type={"text"}
+          value={this.state.newItem}
+          onChange={this.handleInputChange}
+          ref={this._newItemRef}
+          autoFocus
+        ></input>
+        <button onClick={this.addListItem} disabled={!this.state.newItem}>
+          Add ➕
+        </button>
       </div>
     );
   }
@@ -72,7 +48,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <UncontrolledLogin />
+        <TodoList />
       </div>
     );
   }

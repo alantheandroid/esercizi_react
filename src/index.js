@@ -6,14 +6,19 @@ const root = ReactDOM.createRoot(document.querySelector("#root"));
 
 class Container extends React.Component {
   render() {
-    return <div className="container">{this.props.children}</div>;
+    return (
+      <div className="container">
+        <header>{this.props.title}</header>
+        <article>{this.props.children}</article>
+      </div>
+    );
   }
 }
 
 class App extends React.Component {
   render() {
     return (
-      <Container>
+      <Container title={<h2>Lorem ipsum</h2>}>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam ut
           rem, natus sequi molestiae pariatur doloremque distinctio qui

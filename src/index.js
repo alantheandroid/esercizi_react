@@ -9,6 +9,12 @@ class TodoList extends React.Component {
 
   _newItemRef = createRef();
 
+  clearList = () => {
+    this.setState({
+      items: [],
+    });
+  };
+
   handleInputChange = () => {
     this.setState({
       newItem: this._newItemRef.current.value,
@@ -29,7 +35,12 @@ class TodoList extends React.Component {
 
     return (
       <div>
-        <ul>{todo}</ul>
+        <fieldset>
+          <button name="reset" onClick={this.clearList}>
+            Reset ❌
+          </button>
+          <ul>{todo}</ul>
+        </fieldset>
         <input
           type={"text"}
           value={this.state.newItem}
@@ -37,7 +48,11 @@ class TodoList extends React.Component {
           ref={this._newItemRef}
           autoFocus
         ></input>
-        <button onClick={this.addListItem} disabled={!this.state.newItem}>
+        <button
+          name="add"
+          onClick={this.addListItem}
+          disabled={!this.state.newItem}
+        >
           Add ➕
         </button>
       </div>

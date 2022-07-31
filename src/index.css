@@ -1,9 +1,10 @@
-form {
+div {
   width: fit-content;
 }
 
 fieldset {
   padding: 24px;
+  margin-bottom: 12px;
   border-radius: 12px;
 }
 
@@ -14,11 +15,11 @@ label {
 
 input,
 button {
-  margin-left: 12px;
+  margin: 0 12px;
   border-radius: 6px;
 }
 
-button[type="reset"] {
+button[name="reset"] {
   float: right;
   background-color: black;
   color: white;

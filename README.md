@@ -71,7 +71,7 @@
 - ~~forms-06~~
 - ~~lists-03~~
 - ~~lists-04~~
-- lists-05
+- ~~lists-05~~
 - lists-06
 - styling-components-01
 - styling-components-03

@@ -33,6 +33,7 @@ class UncontrolledLogin extends React.Component {
                 type="text"
                 name="username"
                 autoComplete="username"
+                autoFocus
               ></input>
             </label>
             <label>

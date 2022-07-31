@@ -68,8 +68,8 @@
 - ~~forms-03~~
 - ~~forms-04~~
 - ~~forms-05~~
-- ~forms-06~
-- lists-03
+- ~~forms-06~~
+- ~~lists-03~~
 - lists-04
 - lists-05
 - lists-06

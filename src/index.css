@@ -1,42 +1,9 @@
-div {
+.welcome {
   width: fit-content;
-}
-
-fieldset {
-  padding: 24px;
-  margin-bottom: 12px;
-  border-radius: 12px;
-}
-
-label {
-  display: block;
-  margin-bottom: 12px;
-}
-
-input,
-button {
-  margin: 0 12px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-button[name="reset"] {
-  margin: 0;
-  width: 100%;
-  background-color: black;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 12px;
+  border: 12px double white;
   color: white;
-}
-
-p {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-li button[name="remove"] {
-  background-color: lightcoral;
-  color: white;
-  border-color: transparent;
+  border-radius: 24px;
+  background-color: skyblue;
 }

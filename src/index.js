@@ -7,17 +7,15 @@ const root = ReactDOM.createRoot(document.querySelector("#root"));
 class TodoList extends React.Component {
   state = { items: ["navbar", "hero-section", "cards", "footer"], newItem: "" };
 
-  _newItemRef = createRef();
-
   clearList = () => {
     this.setState({
       items: [],
     });
   };
 
-  handleInputChange = () => {
+  handleInputChange = (event) => {
     this.setState({
-      newItem: this._newItemRef.current.value,
+      newItem: event.target.value,
     });
   };
 
@@ -28,33 +26,56 @@ class TodoList extends React.Component {
     });
   };
 
+  removeListItem = (removedItem) => {
+    const filteredArray = this.state.items.filter(
+      (item) => item !== removedItem
+    );
+
+    this.setState({
+      items: [...filteredArray],
+    });
+  };
+
   render() {
     const todo = this.state.items.map((item) => (
-      <li key={item.toString()}>{item}</li>
+      <li key={item.toString()}>
+        <p>
+          {item}
+          <button
+            name="remove"
+            onClick={() => {
+              this.removeListItem(item);
+            }}
+          >
+            remove
+          </button>
+        </p>
+      </li>
     ));
 
     return (
       <div>
         <fieldset>
+          <ul>{todo}</ul>
           <button name="reset" onClick={this.clearList}>
             Reset ❌
           </button>
-          <ul>{todo}</ul>
         </fieldset>
-        <input
-          type={"text"}
-          value={this.state.newItem}
-          onChange={this.handleInputChange}
-          ref={this._newItemRef}
-          autoFocus
-        ></input>
-        <button
-          name="add"
-          onClick={this.addListItem}
-          disabled={!this.state.newItem}
-        >
-          Add ➕
-        </button>
+        <label>
+          <input
+            type={"text"}
+            value={this.state.newItem}
+            onChange={this.handleInputChange}
+            autoFocus
+          ></input>
+          <button
+            name="add"
+            onClick={this.addListItem}
+            disabled={!this.state.newItem}
+          >
+            Add ➕
+          </button>
+        </label>
       </div>
     );
   }

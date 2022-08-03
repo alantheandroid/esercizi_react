@@ -87,7 +87,7 @@
 
 - ~~component-composition-01~~
 - ~~component-composition-02~~
-- render-props-01
+- ~~render-props-01~~
 - context-01
 - context-02
 

@@ -89,7 +89,7 @@
 - ~~component-composition-02~~
 - ~~render-props-01~~
 - ~~context-01~~
-- context-02
+- ~~context-02~~
 
 </details>
 

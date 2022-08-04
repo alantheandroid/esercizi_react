@@ -4,17 +4,14 @@ import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-/* class Welcome extends React.Component {
-  state = {};
-  render() {
-    return <p className="welcome">Welcome, Alessio!</p>;
-  }
-} */
-
-function Welcome({ name }) {
+function Sum({ numbers }) {
+  const total = numbers.reduce((a, b) => a + b, 0);
   return (
     <div className="container">
-      <p className="welcome">Welcome, {name}!</p>
+      <p className="numbers">
+        {numbers[0]} + {numbers[1]} + {numbers[2]} =
+      </p>
+      <h1 className="result">{total}</h1>
     </div>
   );
 }
@@ -23,7 +20,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Welcome name={"Alessio"} />
+        <Sum numbers={[28, 12, 57]} />
       </div>
     );
   }

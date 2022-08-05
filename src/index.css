@@ -19,6 +19,20 @@ body {
   gap: 12px;
 }
 
-button {
-  padding: 6px;
+form {
+  width: auto;
+}
+
+fieldset {
+  padding: 24px;
+  border-radius: 12px;
+}
+
+label {
+  display: block;
+  margin-bottom: 12px;
+}
+
+input {
+  margin-left: 12px;
 }

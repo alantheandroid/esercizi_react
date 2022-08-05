@@ -104,7 +104,7 @@
 - ~~function Components - 02~~
 - ~~function Components - 03~~
 - ~~useState-01~~
-- useState-02
+- ~~useState-02~~
 - useEffect-01
 - useEffect-02
 - useEffect-03

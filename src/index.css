@@ -16,12 +16,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 12px;
 }
 
-.numbers {
-  font-size: larger;
-}
-
-.result {
-  margin-left: 6px;
+button {
+  padding: 6px;
 }

@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-function Sum({ numbers = [28, 12, 57] }) {
-  const total = numbers.reduce((a, b) => a + b, 0);
+function ClickCounter({ initialValue = 0 }) {
+  const [count, setCounter] = useState(initialValue);
+
+  function counterIncrement() {
+    setCounter((c) => c + 1);
+  }
+
+  function countReset() {
+    setCounter(initialValue);
+  }
+
   return (
     <div className="container">
-      <p className="numbers">
-        {numbers[0]} + {numbers[1]} + {numbers[2]} =
-      </p>
-      <h1 className="result">{total}</h1>
+      <h1>Counter : {count}</h1>
+      <button onClick={counterIncrement}>Increment ➕</button>
+      <button onClick={countReset}>Reset 🔄</button>
     </div>
   );
 }
@@ -20,7 +28,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Sum />
+        <ClickCounter />
       </div>
     );
   }

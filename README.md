@@ -57,7 +57,7 @@
 <details>
 <summary>
 
-## Forms-Lists-and-Styling
+## ~~Forms-Lists-and-Styling~~
 
 </summary>
 
@@ -81,7 +81,7 @@
 <details>
 <summary>
 
-## Composition
+## ~~Composition~~
 
 </summary>
 

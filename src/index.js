@@ -18,7 +18,7 @@ function Counter({ initialValue = 0, incrementBy = 1, intervalAmount = 1000 }) {
   }, [count, incrementBy, intervalAmount]);
 
   return (
-    <div>
+    <div className="container">
       <h1>Count: {count}</h1>
     </div>
   );

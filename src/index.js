@@ -4,33 +4,64 @@ import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-function Counter({ initialValue = 0, incrementBy = 1, intervalAmount = 1000 }) {
-  const [count, setCount] = useState(initialValue);
+/* const username = "alantheandroid";
+fetch(`https://api.github.com/users/${username}`)
+  .then((response) => {
+    console.log("response", response.status);
+    return response.json();
+  })
+  .then((user) => console.log("user", user));
+ */
+
+function GitHubUser({ username = "alantheandroid" }) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCount((c) => c + incrementBy);
-    }, intervalAmount);
-
-    return () => {
-      clearInterval(timer);
-    };
-  }, [count, incrementBy, intervalAmount]);
+    setLoading(true);
+    fetch(`https://api.github.com/users/${username}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        console.log("json", json);
+        setLoading(false);
+        setData(json);
+      });
+  }, [username]);
 
   return (
     <div className="container">
-      <h1>Count: {count}</h1>
+      {loading && (
+        <div className="container panel">
+          <p>
+            <i>Loading</i> ⏳
+          </p>
+        </div>
+      )}
+      {data && (
+        <div className="container panel">
+          <img
+            className="profilePicture"
+            alt="user"
+            src="https://avatars.githubusercontent.com/u/32773890?v=4"
+          />
+          <h1>{data.name}</h1>
+          <p>
+            <i>{data.bio}</i>
+          </p>
+        </div>
+      )}
     </div>
   );
 }
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Counter />
-      </div>
-    );
-  }
+
+function App() {
+  return (
+    <div>
+      <GitHubUser />
+    </div>
+  );
 }
 
 root.render(

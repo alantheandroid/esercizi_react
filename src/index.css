@@ -14,25 +14,32 @@ body {
 .container {
   height: 100vh;
   display: flex;
+  flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
+  text-align: center;
   gap: 12px;
-}
-
-form {
-  width: auto;
-}
-
-fieldset {
   padding: 24px;
-  border-radius: 12px;
+  background-image: url("https://images.unsplash.com/photo-1553693008-a9296dd74129?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-label {
-  display: block;
-  margin-bottom: 12px;
+.panel {
+  height: auto;
+  width: auto;
+  padding: 48px;
+  border-radius: 24px;
+  color: black;
+
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 
-input {
-  margin-left: 12px;
+.profilePicture {
+  width: 50%;
+  border-radius: 100%;
 }

@@ -107,7 +107,7 @@
 - ~~useState-02~~
 - ~~useEffect-01~~
 - ~~useEffect-02~~
-- useEffect-03
+- ~~useEffect-03~~
 - useEffect-04
 - custom-hooks-01
 - custom-hooks-02

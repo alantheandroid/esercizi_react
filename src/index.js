@@ -1,32 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-class Counter extends React.Component {
-  state = {
-    count: 0,
-  };
+function Counter({ initialValue = 0, incrementBy = 1, intervalAmount = 1000 }) {
+  const [count, setCount] = useState(initialValue);
 
-  constructor(props) {
-    super(props);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCount((c) => c + incrementBy);
+    }, intervalAmount);
 
-    setInterval(() => {
-      this.setState({
-        count: this.state.count + 1,
-      });
-    }, 1000);
-  }
+    return () => {
+      clearInterval(timer);
+    };
+  }, [count, incrementBy, intervalAmount]);
 
-  render() {
-    return (
-      <div>
-        <h1>Count: {this.state.count}</h1>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+    </div>
+  );
 }
-
 class App extends React.Component {
   render() {
     return (

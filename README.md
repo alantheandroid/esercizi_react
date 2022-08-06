@@ -28,7 +28,7 @@
 <details>
 <summary>
 
-## basic-concepts
+## ~~basic-concepts~~
 
 </summary>
 
@@ -49,47 +49,47 @@
 - ~~conditional-rendering-04~~
 - ~~conditional-rendering-05~~
 - ~~state-01~~
-- state-03
-- state-04
-- component-lifecycle-01
+- ~~state-03~~
+- ~~state-04~~
+- ~~component-lifecycle-01~~
 
 </details>
 <details>
 <summary>
 
-## Forms-Lists-and-Styling
+## ~~Forms-Lists-and-Styling~~
 
 </summary>
 
-- events-01
-- events-03
-- forms-01
-- forms-02
-- forms-03
-- forms-04
-- forms-05
-- forms-06
-- lists-03
-- lists-04
-- lists-05
-- lists-06
-- styling-components-01
-- styling-components-03
+- ~~events-01~~
+- ~~events-03~~
+- ~~forms-01~~
+- ~~forms-02~~
+- ~~forms-03~~
+- ~~forms-04~~
+- ~~forms-05~~
+- ~~forms-06~~
+- ~~lists-03~~
+- ~~lists-04~~
+- ~~lists-05~~
+- ~~lists-06~~
+- ~~styling-components-01~~
+- ~~styling-components-03~~
 
 </details>
 
 <details>
 <summary>
 
-## Composition
+## ~~Composition~~
 
 </summary>
 
-- component-composition-02
-- component-composition-01
-- render-props-01
-- context-01
-- context-02
+- ~~component-composition-01~~
+- ~~component-composition-02~~
+- ~~render-props-01~~
+- ~~context-01~~
+- ~~context-02~~
 
 </details>
 
@@ -100,12 +100,12 @@
 
 </summary>
 
-- function Components - 01
-- function Components - 02
-- function Components - 03
-- useState-01
-- useState-02
-- useEffect-01
+- ~~function Components - 01~~
+- ~~function Components - 02~~
+- ~~function Components - 03~~
+- ~~useState-01~~
+- ~~useState-02~~
+- ~~useEffect-01~~
 - ~~useEffect-02~~
 - useEffect-03
 - useEffect-04

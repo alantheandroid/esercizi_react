@@ -1,86 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-function Login() {
-  const [data, setData] = useState({
-    username: "",
-    password: "",
-    remember: false,
-  });
+function ClickCounter({ initialValue = 0, onCounterChange }) {
+  const [count, setCounter] = useState(initialValue);
 
-  function handleInputChange(event) {
-    const { name, type, value, checked } = event.target;
+  useEffect(() => onCounterChange(count), [count, onCounterChange]);
 
-    setData((data) => {
-      return {
-        ...data,
-        [name]: type === "checkbox" ? checked : value,
-      };
-    });
+  function counterIncrement() {
+    setCounter((c) => c + 1);
+  }
+
+  function countReset() {
+    setCounter(initialValue);
   }
 
   return (
     <div className="container">
-      <form>
-        <fieldset>
-          <legend>Form</legend>
-          <label>
-            Username
-            <input
-              name="username"
-              type="text"
-              value={data.username}
-              onChange={handleInputChange}
-              autoComplete="username"
-            ></input>
-          </label>
-          <label>
-            Password
-            <input
-              name="password"
-              type="password"
-              value={data.password}
-              onChange={handleInputChange}
-              autoComplete="current-password"
-            ></input>
-          </label>
-          <label>
-            Remember?
-            <input
-              name="remember"
-              type="checkbox"
-              checked={data.remember}
-              onChange={handleInputChange}
-            ></input>
-          </label>
-          <label>
-            Click to
-            <input
-              name="login"
-              type="button"
-              value="Login"
-              disabled={!(data.username && data.password)}
-            ></input>
-          </label>
-        </fieldset>
-      </form>
+      <h1>Counter : {count}</h1>
+      <button onClick={counterIncrement}>Increment ➕</button>
+      <button onClick={countReset}>Reset 🔄</button>
     </div>
   );
 }
 
-class App extends React.Component {
-  state = {};
-
-  render() {
-    return (
-      <div>
-        <Login />
-      </div>
-    );
+function App() {
+  function onCounterChange(count) {
+    console.log("count", count);
   }
+
+  return (
+    <div>
+      <ClickCounter onCounterChange={onCounterChange} />
+    </div>
+  );
 }
 
 root.render(

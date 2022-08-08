@@ -4,15 +4,6 @@ import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-/* const username = "alantheandroid";
-fetch(`https://api.github.com/users/${username}`)
-  .then((response) => {
-    console.log("response", response.status);
-    return response.json();
-  })
-  .then((user) => console.log("user", user));
- */
-
 function GitHubUser({ username = "alantheandroid" }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);

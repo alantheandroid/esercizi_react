@@ -4,45 +4,115 @@ import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-function GitHubUser({ username = "alantheandroid" }) {
+function GitHubUser({ username }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  async function fetchGitHubUser(username) {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(`https://api.github.com/users/${username}`);
+      const json = await response.json();
+      if (response.status !== 200) {
+        throw new Error("User not found");
+      }
+      setData(json);
+    } catch (error) {
+      setError(error);
+      console.log("error", error);
+      setData(null);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   useEffect(() => {
-    setLoading(true);
-    fetch(`https://api.github.com/users/${username}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        console.log("json", json);
-        setLoading(false);
-        setData(json);
-      });
+    fetchGitHubUser(username);
   }, [username]);
 
   return (
-    <div className="container">
+    <div>
       {loading && (
-        <div className="container panel">
+        <div>
           <p>
             <i>Loading</i> ⏳
           </p>
         </div>
       )}
+      {error && <p>User not found! 🤷</p>}
       {data && (
-        <div className="container panel">
-          <img
-            className="profilePicture"
-            alt="user"
-            src="https://avatars.githubusercontent.com/u/32773890?v=4"
-          />
-          <h1>{data.name}</h1>
-          <p>
-            <i>{data.bio}</i>
-          </p>
+        <div className="flex-horizontal userData">
+          <img className="profilePicture" alt="user" src={data.avatar_url} />
+          <div className="flex-vertical">
+            <h1>{data.name}</h1>
+            <p>
+              <i>{data.bio}</i>
+            </p>
+          </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function GitHubUserList() {
+  const [usersArray, setUsersArray] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+
+  useEffect(() => {
+    console.log("usersArray", usersArray);
+  }, [usersArray]);
+
+  function removeItem(removedItem) {
+    const filteredArray = usersArray.filter((item) => item !== removedItem);
+    setUsersArray([...filteredArray]);
+  }
+
+  function handleInputChange(event) {
+    const value = event.target.value;
+    setInputValue(value);
+  }
+
+  function handleUserAdd() {
+    if (!usersArray.includes(inputValue)) {
+      setUsersArray([...usersArray, inputValue]);
+    }
+  }
+
+  const userList = usersArray.map((userItem, index) => (
+    <div className="userItem flex-horizontal panel" key={userItem + index}>
+      <div>
+        <GitHubUser username={userItem} />
+      </div>
+      <div className="">
+        <button className="remove-item" onClick={() => removeItem(userItem)}>
+          ✖️
+        </button>
+      </div>
+    </div>
+  ));
+
+  return (
+    <div className="container background flex-vertical">
+      <div className="panel">
+        <label>
+          Search for GitHub users
+          <div className="inputField">
+            <input
+              name="username"
+              type={"search"}
+              autoComplete="true"
+              placeholder="alantheandroid"
+              onChange={handleInputChange}
+            />
+            <button onClick={handleUserAdd}>➕</button>
+          </div>
+        </label>
+      </div>
+      <div className="usersList flex-vertical">{userList}</div>
     </div>
   );
 }
@@ -50,7 +120,7 @@ function GitHubUser({ username = "alantheandroid" }) {
 function App() {
   return (
     <div>
-      <GitHubUser />
+      <GitHubUserList />
     </div>
   );
 }

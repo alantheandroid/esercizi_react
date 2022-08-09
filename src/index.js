@@ -4,7 +4,7 @@ import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-function Login() {
+function useLogin() {
   const [data, setData] = useState({
     username: "",
     password: "",
@@ -22,18 +22,35 @@ function Login() {
     });
   }
 
+  return {
+    username: data.username,
+    password: data.password,
+    remember: data.remember,
+    onInputChange: handleInputChange,
+  };
+}
+
+function HookLogin(data) {
+  const { username, password, remember, onInputChange } = useLogin({
+    username: "",
+    password: "",
+    remember: false,
+  });
+
   return (
-    <div className="container">
+    <div className="panel">
       <form>
-        <fieldset>
-          <legend>Form</legend>
+        <fieldset className="claymorph panel">
+          <legend className="claymorph panel">
+            <b>Form</b>
+          </legend>
           <label>
             Username
             <input
               name="username"
               type="text"
-              value={data.username}
-              onChange={handleInputChange}
+              value={username}
+              onChange={onInputChange}
               autoComplete="username"
             ></input>
           </label>
@@ -42,8 +59,8 @@ function Login() {
             <input
               name="password"
               type="password"
-              value={data.password}
-              onChange={handleInputChange}
+              value={password}
+              onChange={onInputChange}
               autoComplete="current-password"
             ></input>
           </label>
@@ -52,8 +69,8 @@ function Login() {
             <input
               name="remember"
               type="checkbox"
-              checked={data.remember}
-              onChange={handleInputChange}
+              checked={remember}
+              onChange={onInputChange}
             ></input>
           </label>
           <label>
@@ -62,7 +79,7 @@ function Login() {
               name="login"
               type="button"
               value="Login"
-              disabled={!(data.username && data.password)}
+              disabled={!(username && password)}
             ></input>
           </label>
         </fieldset>
@@ -71,16 +88,12 @@ function Login() {
   );
 }
 
-class App extends React.Component {
-  state = {};
-
-  render() {
-    return (
-      <div>
-        <Login />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="container flex-vertical">
+      <HookLogin />
+    </div>
+  );
 }
 
 root.render(

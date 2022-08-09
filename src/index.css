@@ -11,14 +11,6 @@ body {
   height: 100vh;
 }
 
-.container {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
 form {
   width: auto;
 }
@@ -35,4 +27,59 @@ label {
 
 input {
   margin-left: 12px;
+}
+
+.container {
+  height: 100vh;
+}
+
+.flex-horizontal {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.flex-vertical {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.panel {
+  border: none;
+  height: auto;
+  width: auto;
+  padding: 24px;
+  border-radius: 1.5rem;
+  color: black;
+}
+
+.glassmorph {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.45);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.counterButton {
+  border: none;
+  height: auto;
+  width: auto;
+  padding: 12px;
+}
+
+.round {
+  aspect-ratio: 1 / 1;
+  border-radius: 100%;
+}
+
+.resetButton {
+  border-radius: 1rem;
+  color: white;
+  background: rgba(255, 0, 0, 0.75);
+  box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.45);
 }

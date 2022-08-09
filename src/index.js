@@ -1,25 +1,59 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-function Counter({ initialValue = 0, incrementBy = 1, intervalAmount = 1000 }) {
-  const [count, setCount] = useState(initialValue);
+function useCounter(initialValue = 0) {
+  const [counter, setCounter] = useState(initialValue);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCount((c) => c + incrementBy);
-    }, intervalAmount);
+  function handleCounterIncrement() {
+    setCounter((c) => c + 1);
+  }
 
-    return () => {
-      clearInterval(timer);
-    };
-  }, [count, incrementBy, intervalAmount]);
+  function handleCounterDecrement() {
+    setCounter((c) => c - 1);
+  }
+
+  function handleCounterReset() {
+    setCounter(initialValue);
+  }
+
+  return {
+    counter: counter,
+    onIncrement: handleCounterIncrement,
+    onDecrement: handleCounterDecrement,
+    onReset: handleCounterReset,
+  };
+}
+
+function HookCounter({ initialValue = 0 }) {
+  const { counter, onIncrement, onDecrement, onReset } =
+    useCounter(initialValue);
 
   return (
-    <div className="container">
-      <h1>Count: {count}</h1>
+    <div className="container flex-vertical">
+      <h1 className="panel glassmorph">Count: {counter}</h1>
+      <div className="flex-horizontal">
+        <button
+          className="counterButton round glassmorph"
+          onClick={onIncrement}
+        >
+          ➕
+        </button>
+        <button
+          className="counterButton round glassmorph"
+          onClick={onDecrement}
+        >
+          ➖
+        </button>
+        <button
+          className="panel glassmorph counterButton resetButton"
+          onClick={onReset}
+        >
+          Reset
+        </button>
+      </div>
     </div>
   );
 }
@@ -27,7 +61,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Counter />
+        <HookCounter />
       </div>
     );
   }

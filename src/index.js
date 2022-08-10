@@ -32,11 +32,7 @@ function GitHubUser({ username = "alantheandroid" }) {
       )}
       {data && (
         <div className="container panel">
-          <img
-            className="profilePicture"
-            alt="user"
-            src="https://avatars.githubusercontent.com/u/32773890?v=4"
-          />
+          <img className="profilePicture" alt="user" src={data.avatar_url} />
           <h1>{data.name}</h1>
           <p>
             <i>{data.bio}</i>

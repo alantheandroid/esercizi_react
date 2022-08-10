@@ -4,43 +4,86 @@ import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-function useGitHubUser(username) {
+function useGitHubUser() {
+  const [inputValue, setInputValue] = useState("");
+  const [fetchingUser, setUserFetch] = useState("");
+
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  function handleInputChange(event) {
+    const value = event.target.value;
+    setInputValue(value);
+  }
+
+  function handleFetchUser() {
+    setUserFetch(inputValue);
+  }
 
   useEffect(() => {
+    if (fetchingUser !== "") {
+      fetchGitHubUser(fetchingUser);
+    }
+  }, [fetchingUser]);
+
+  async function fetchGitHubUser(username) {
+    setData(null);
     setLoading(true);
-    fetch(`https://api.github.com/users/${username}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        console.log("user", json);
-        setLoading(false);
-        setData(json);
-      });
-  }, [username]);
+    setError(null);
+
+    try {
+      const response = await fetch(`https://api.github.com/users/${username}`);
+      const json = await response.json();
+      if (response.status !== 200) {
+        throw new Error("User not found");
+      }
+      setData(json);
+      console.log("json", json);
+    } catch (error) {
+      setError(error);
+      console.log("error", error);
+      setData(null);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return {
     data: data,
     loading: loading,
+    error: error,
+    onInputChange: handleInputChange,
+    onUserFetch: handleFetchUser,
   };
 }
 
-function HookGitHubUser({ username = "alantheandroid" }) {
-  const { data, loading } = useGitHubUser(username);
+function HookGitHubUser() {
+  const { data, loading, error, onInputChange, onUserFetch } = useGitHubUser();
 
   return (
-    <div className="container">
+    <div className="background container flex-vertical">
+      <div className="panel glassmorph">
+        <label className="flex-horizontal">
+          Search for GitHub users:
+          <input placeholder="alantheandroid" onChange={onInputChange}></input>
+          <button onClick={onUserFetch}>➕</button>
+        </label>
+      </div>
       {loading && (
-        <div className="container panel">
+        <div className="panel glassmorph">
           <p>
             <i>Loading</i> ⏳
           </p>
         </div>
       )}
+      {error && (
+        <div className="panel glassmorph">
+          <p>User not found! 🤷</p>
+        </div>
+      )}
       {data && (
-        <div className="container panel">
+        <div className="flex-vertical panel glassmorph">
           <img className="profilePicture" alt="user" src={data.avatar_url} />
           <h1>{data.name}</h1>
           <p>

@@ -4,7 +4,7 @@ import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-function GitHubUser({ username = "alantheandroid" }) {
+function useGitHubUser(username) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -15,11 +15,20 @@ function GitHubUser({ username = "alantheandroid" }) {
         return response.json();
       })
       .then((json) => {
-        console.log("json", json);
+        console.log("user", json);
         setLoading(false);
         setData(json);
       });
   }, [username]);
+
+  return {
+    data: data,
+    loading: loading,
+  };
+}
+
+function HookGitHubUser({ username = "alantheandroid" }) {
+  const { data, loading } = useGitHubUser(username);
 
   return (
     <div className="container">
@@ -46,7 +55,7 @@ function GitHubUser({ username = "alantheandroid" }) {
 function App() {
   return (
     <div>
-      <GitHubUser />
+      <HookGitHubUser />
     </div>
   );
 }

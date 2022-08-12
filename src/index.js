@@ -1,73 +1,39 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-function useCounter(initialValue = 0) {
-  const [counter, setCounter] = useState(initialValue);
+function FilteredList({ usersArray }) {
+  const filteredList = useMemo(() => {
+    return usersArray.filter((user) => user.age > 18);
+  }, [usersArray]);
 
-  const handleCounterIncrement = useCallback(function handleCounterIncrement() {
-    setCounter((c) => c + 1);
-  }, []);
+  const usersList = filteredList.map((user, index) => (
+    <li key={user.name + index}>
+      {user.name}, {user.age}
+    </li>
+  ));
 
-  const handleCounterDecrement = useCallback(function handleCounterDecrement() {
-    setCounter((c) => c - 1);
-  }, []);
-
-  const handleCounterReset = useCallback(
-    function handleCounterReset() {
-      setCounter(initialValue);
-    },
-    [initialValue]
-  );
-
-  return {
-    counter: counter,
-    onIncrement: handleCounterIncrement,
-    onDecrement: handleCounterDecrement,
-    onReset: handleCounterReset,
-  };
+  return <ul className="panel glassmorph">{usersList}</ul>;
 }
 
-function HookCounter({ initialValue = 0 }) {
-  const { counter, onIncrement, onDecrement, onReset } =
-    useCounter(initialValue);
+function App() {
+  const usersArray = [
+    { name: "Alessio", id: 0, age: 28 },
+    { name: "Anastassiya", id: 1, age: 17 },
+    { name: "Andrea", id: 2, age: 27 },
+    { name: "Emanuele", id: 3, age: 26 },
+    { name: "Gianluigi", id: 4, age: 16 },
+    { name: "Giorgio", id: 5, age: 25 },
+    { name: "Pietro", id: 6, age: 24 },
+  ];
 
   return (
-    <div className="container flex-vertical">
-      <h1 className="panel glassmorph">Count: {counter}</h1>
-      <div className="flex-horizontal">
-        <button
-          className="counterButton round glassmorph"
-          onClick={onIncrement}
-        >
-          ➕
-        </button>
-        <button
-          className="counterButton round glassmorph"
-          onClick={onDecrement}
-        >
-          ➖
-        </button>
-        <button
-          className="panel glassmorph counterButton resetButton"
-          onClick={onReset}
-        >
-          Reset
-        </button>
-      </div>
+    <div className="container flex-horizontal">
+      <FilteredList usersArray={usersArray} />
     </div>
   );
-}
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <HookCounter />
-      </div>
-    );
-  }
 }
 
 root.render(

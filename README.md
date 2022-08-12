@@ -110,9 +110,9 @@
 - ~~useEffect-03~~
 - ~~useEffect-04~~
 - ~~custom-hooks-01~~
-- custom-hooks-02
-- custom-hooks-03
-- custom-hooks-04
+- ~~custom-hooks-02~~
+- ~~custom-hooks-03~~
+- ~~custom-hooks-04~~
 - ~~useCallback~~
 - useMemo
 - useRef-02

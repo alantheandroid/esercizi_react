@@ -16,7 +16,7 @@ function DisplayLanguage() {
   const language = useContext(LanguageContext);
 
   return (
-    <div className="languageDisplay">
+    <div className="flex-horizontal">
       <p>{Languages[language].CURRENT_LANGUAGE}</p>
       <h1>{language}</h1>
     </div>
@@ -31,14 +31,21 @@ function App() {
   }
 
   return (
-    <div>
-      <select value={langSelect} onChange={handleLanguageChange}>
-        <option value={"English"}>English</option>
-        <option value={"Italiano"}>Italiano</option>
-      </select>
-      <LanguageContext.Provider value={langSelect}>
-        <DisplayLanguage />
-      </LanguageContext.Provider>
+    <div className="container flex-vertical">
+      <div className="panel flex-vertical claymorph">
+        <select
+          className=""
+          title="language"
+          value={langSelect}
+          onChange={handleLanguageChange}
+        >
+          <option value={"English"}>English</option>
+          <option value={"Italiano"}>Italiano</option>
+        </select>
+        <LanguageContext.Provider value={langSelect}>
+          <DisplayLanguage />
+        </LanguageContext.Provider>
+      </div>
     </div>
   );
 }

@@ -57,7 +57,7 @@
 <details>
 <summary>
 
-## Forms-Lists-and-Styling
+## ~~Forms-Lists-and-Styling~~
 
 </summary>
 
@@ -81,7 +81,7 @@
 <details>
 <summary>
 
-## Composition
+## ~~Composition~~
 
 </summary>
 
@@ -96,26 +96,26 @@
 <details>
 <summary>
 
-## Function-components-and-hooks
+## ~~Function-components-and-hooks~~
 
 </summary>
 
-- function Components - 01
-- function Components - 02
-- function Components - 03
-- useState-01
-- useState-02
-- useEffect-01
-- useEffect-02
-- useEffect-03
-- useEffect-04
-- custom-hooks-01
-- custom-hooks-02
-- custom-hooks-03
-- custom-hooks-04
-- useCallback
-- useMemo
-- useRef-02
+- ~~function Components - 01~~
+- ~~function Components - 02~~
+- ~~function Components - 03~~
+- ~~useState-01~~
+- ~~useState-02~~
+- ~~useEffect-01~~
+- ~~useEffect-02~~
+- ~~useEffect-03~~
+- ~~useEffect-04~~
+- ~~custom-hooks-01~~
+- ~~custom-hooks-02~~
+- ~~custom-hooks-03~~
+- ~~custom-hooks-04~~
+- ~~useCallback~~
+- ~~useMemo~~
+- ~~useRef-02~~
 - ~~useContext~~
 
 </details>

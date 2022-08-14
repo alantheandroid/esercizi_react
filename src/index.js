@@ -1,4 +1,5 @@
-import React, { createContext } from "react";
+import React, { useContext, useState } from "react";
+import { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
@@ -10,49 +11,36 @@ const Languages = {
   English: { CURRENT_LANGUAGE: "Current language is: " },
   Italiano: { CURRENT_LANGUAGE: "La lingua corrente è: " },
 };
-class DisplayLanguage extends React.Component {
-  state = {};
 
-  render() {
-    return (
-      <LanguageContext.Consumer>
-        {(language) => {
-          return (
-            <div className="languageDisplay">
-              <p>{Languages[language].CURRENT_LANGUAGE}</p>
-              <h1>{language}</h1>
-            </div>
-          );
-        }}
-      </LanguageContext.Consumer>
-    );
-  }
+function DisplayLanguage() {
+  const language = useContext(LanguageContext);
+
+  return (
+    <div className="languageDisplay">
+      <p>{Languages[language].CURRENT_LANGUAGE}</p>
+      <h1>{language}</h1>
+    </div>
+  );
 }
 
-class App extends React.Component {
-  state = {
-    lang: "English",
-  };
+function App() {
+  const [langSelect, setLangSelect] = useState("English");
 
-  handleLanguageChange = (event) => {
-    this.setState({
-      lang: event.target.value,
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        <select value={this.state.lang} onChange={this.handleLanguageChange}>
-          <option value="English">English</option>
-          <option value="Italiano">Italiano</option>
-        </select>
-        <LanguageContext.Provider value={this.state.lang}>
-          <DisplayLanguage />
-        </LanguageContext.Provider>
-      </div>
-    );
+  function handleLanguageChange(event) {
+    setLangSelect(event.target.value);
   }
+
+  return (
+    <div>
+      <select value={langSelect} onChange={handleLanguageChange}>
+        <option value={"English"}>English</option>
+        <option value={"Italiano"}>Italiano</option>
+      </select>
+      <LanguageContext.Provider value={langSelect}>
+        <DisplayLanguage />
+      </LanguageContext.Provider>
+    </div>
+  );
 }
 
 root.render(

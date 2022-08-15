@@ -52,6 +52,19 @@ select {
   width: 100%;
 }
 
+.panel {
+  border: none;
+  height: auto;
+  width: auto;
+  padding: 2rem;
+  border-radius: 1.75rem;
+}
+
+.fill {
+  height: 100%;
+  width: 100%;
+}
+
 .flex-horizontal {
   display: flex;
   flex-flow: row nowrap;
@@ -77,12 +90,9 @@ select {
   justify-content: space-between;
 }
 
-.panel {
-  border: none;
-  height: auto;
-  width: auto;
-  padding: 2rem;
-  border-radius: 1.75rem;
+.round {
+  aspect-ratio: 1/1;
+  border-radius: 100%;
 }
 
 .glassmorph {

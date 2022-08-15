@@ -96,7 +96,7 @@
 <details>
 <summary>
 
-## Function-components-and-hooks
+## ~~Function-components-and-hooks~~
 
 </summary>
 
@@ -104,19 +104,19 @@
 - ~~function Components - 02~~
 - ~~function Components - 03~~
 - ~~useState-01~~
-- useState-02
-- useEffect-01
-- useEffect-02
-- useEffect-03
-- useEffect-04
-- custom-hooks-01
-- custom-hooks-02
-- custom-hooks-03
-- custom-hooks-04
-- useCallback
-- useMemo
-- useRef-02
-- useContext
+- ~~useState-02~~
+- ~~useEffect-01~~
+- ~~useEffect-02~~
+- ~~useEffect-03~~
+- ~~useEffect-04~~
+- ~~custom-hooks-01~~
+- ~~custom-hooks-02~~
+- ~~custom-hooks-03~~
+- ~~custom-hooks-04~~
+- ~~useCallback~~
+- ~~useMemo~~
+- ~~useRef-02~~
+- ~~useContext~~
 
 </details>
 
@@ -127,7 +127,7 @@
 
 </summary>
 
-- react-router-01
+- ~~react-router-01~~
 - react-router-02
 - react-router-03
 - react-router-04

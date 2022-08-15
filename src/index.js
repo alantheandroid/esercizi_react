@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
@@ -24,18 +25,29 @@ function ClickCounter({ initialValue = 0 }) {
   );
 }
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <ClickCounter />
-      </div>
-    );
-  }
+function Welcome({ name }) {
+  return (
+    <div className="container flex-vertical">
+      <p className="panel glassmorph">
+        Welcome, <b className="accentColor">{name}</b>!
+      </p>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Welcome name="Alessio" />} />
+      <Route path="counter" element={<ClickCounter />} />
+    </Routes>
+  );
 }
 
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );

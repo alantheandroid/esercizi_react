@@ -96,7 +96,7 @@
 <details>
 <summary>
 
-## ~~Function-components-and-hooks~~
+## ~~~~Function-components-and-hooks~~~~
 
 </summary>
 
@@ -114,9 +114,15 @@
 - ~~custom-hooks-03~~
 - ~~custom-hooks-04~~
 - ~~useCallback~~
-- ~~useMemo~~
-- ~~useRef-02~~
-- ~~useContext~~
+- ```useMemo~~~~
+
+  ```
+- ```useRef-02~~~~
+
+  ```
+- ```useContext~~~~
+
+  ```
 
 </details>
 

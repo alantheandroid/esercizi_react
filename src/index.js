@@ -48,10 +48,7 @@ function HookCounter({ initialValue = 0 }) {
           <button className="round glassmorph" onClick={onDecrement}>
             ➖
           </button>
-          <button
-            className="panel glassmorph counterButton resetButton"
-            onClick={onReset}
-          >
+          <button className="panel glassmorph resetButton" onClick={onReset}>
             Reset
           </button>
         </div>

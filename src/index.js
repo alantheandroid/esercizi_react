@@ -7,8 +7,10 @@ const root = ReactDOM.createRoot(document.querySelector("#root"));
 
 function Welcome({ name }) {
   return (
-    <div className="container">
-      <p className="welcome">Welcome, {name}!</p>
+    <div className="container flex-vertical">
+      <p className="panel glassmorph">
+        Welcome, <b className="accentColor">{name}!</b>
+      </p>
     </div>
   );
 }

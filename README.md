@@ -114,15 +114,9 @@
 - ~~custom-hooks-03~~
 - ~~custom-hooks-04~~
 - ~~useCallback~~
-- ```useMemo~~~~
-
-  ```
-- ```useRef-02~~~~
-
-  ```
-- ```useContext~~~~
-
-  ```
+- ~~useMemo~~
+- ~~useRef-02~~
+- ~~useContext~~
 
 </details>
 

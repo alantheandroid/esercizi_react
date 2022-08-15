@@ -1,26 +1,61 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-function ClickCounter({ initialValue = 0 }) {
-  const [count, setCounter] = useState(initialValue);
+function useCounter(initialValue = 0) {
+  const [counter, setCounter] = useState(initialValue);
 
-  function counterIncrement() {
+  const handleCounterIncrement = useCallback(function handleCounterIncrement() {
     setCounter((c) => c + 1);
-  }
+  }, []);
 
-  function countReset() {
-    setCounter(initialValue);
-  }
+  const handleCounterDecrement = useCallback(function handleCounterDecrement() {
+    setCounter((c) => c - 1);
+  }, []);
+
+  const handleCounterReset = useCallback(
+    function handleCounterReset() {
+      setCounter(initialValue);
+    },
+    [initialValue]
+  );
+
+  return {
+    counter: counter,
+    onIncrement: handleCounterIncrement,
+    onDecrement: handleCounterDecrement,
+    onReset: handleCounterReset,
+  };
+}
+
+function HookCounter({ initialValue = 0 }) {
+  const { counter, onIncrement, onDecrement, onReset } =
+    useCounter(initialValue);
 
   return (
-    <div className="container">
-      <h1>Counter : {count}</h1>
-      <button onClick={counterIncrement}>Increment ➕</button>
-      <button onClick={countReset}>Reset 🔄</button>
+    <div className="container flex-vertical">
+      <div className="flex-vertical">
+        <h1 className="panel glassmorph flex-horizontal fill">
+          Count: <span className="accentColor">{counter}</span>
+        </h1>
+        <div className="flex-horizontal">
+          <button className="round glassmorph" onClick={onIncrement}>
+            ➕
+          </button>
+          <button className="round glassmorph" onClick={onDecrement}>
+            ➖
+          </button>
+          <button
+            className="panel glassmorph counterButton resetButton"
+            onClick={onReset}
+          >
+            Reset
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
@@ -28,9 +63,9 @@ function ClickCounter({ initialValue = 0 }) {
 function Welcome({ name }) {
   return (
     <div className="container flex-vertical">
-      <p className="panel glassmorph">
-        Welcome, <b className="accentColor">{name}</b>!
-      </p>
+      <h1 className="panel glassmorph">
+        Welcome, <span className="accentColor">{name}</span>!
+      </h1>
     </div>
   );
 }
@@ -39,7 +74,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Welcome name="Alessio" />} />
-      <Route path="counter" element={<ClickCounter />} />
+      <Route path="counter" element={<HookCounter />} />
     </Routes>
   );
 }

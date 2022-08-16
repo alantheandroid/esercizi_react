@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 
 import HookCounter from "./components/HookCounter";
 import Welcome from "./components/Welcome";
@@ -13,12 +13,27 @@ const root = ReactDOM.createRoot(document.querySelector("#root"));
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Welcome name="Alessio" />} />
-      <Route path="counter" element={<HookCounter />} />
-      <Route path="users/" element={<HookGitHubUser />} />
-      <Route path="users/:username" element={<ShowGitHubUser />} />
-    </Routes>
+    <div className="container flex-vertical">
+      <Routes>
+        <Route path="/" element={<Welcome name="Alessio" />} />
+        <Route path="counter" element={<HookCounter />} />
+        <Route path="users" element={<HookGitHubUser />} />
+        <Route path="users/:username" element={<ShowGitHubUser />} />
+      </Routes>
+      <footer className="flex-horizontal glassmorph transparent">
+        <div className="flex-horizontal">
+          <Link className="linkButton accentColor glassmorph" to="/">
+            Home
+          </Link>
+          <Link className="linkButton accentColor glassmorph" to="counter">
+            Counter
+          </Link>
+          <Link className="linkButton accentColor glassmorph" to="users">
+            Users
+          </Link>
+        </div>
+      </footer>
+    </div>
   );
 }
 

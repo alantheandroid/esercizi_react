@@ -1,11 +1,6 @@
 :root {
   --accent-blue: rgb(74, 144, 226);
-  --transparent-blue: rgba(74, 144, 226, 0.5);
-  --glassmorph-shadow: rgba(31, 38, 135, 0.45);
-}
-
-:root {
-  --accent-blue: rgb(74, 144, 226);
+  --transparent: rgba(255, 255, 255, 1);
   --transparent-blue: rgba(74, 144, 226, 0.5);
   --glassmorph-shadow: rgba(31, 38, 135, 0.45);
 }
@@ -49,6 +44,14 @@ select {
 
 select {
   font-weight: bold;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
 }
 
 .background {
@@ -145,6 +148,17 @@ select {
     inset 0px 11px 28px 0px rgb(255, 255, 255);
 }
 
+.linkButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .profilePicture {
   width: 15rem;
+}
+
+.transparent {
+  background-color: transparent;
 }

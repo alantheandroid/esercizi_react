@@ -51,7 +51,7 @@ export default function ShowGitHubUser() {
       {data && (
         <div className="flex-vertical panel claymorph">
           <img
-            className="round profilePicture"
+            className="panel round profilePicture"
             alt="user"
             src={data.avatar_url}
           />

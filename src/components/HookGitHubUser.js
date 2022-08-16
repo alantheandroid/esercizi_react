@@ -4,7 +4,7 @@ export default function HookGitHubUser() {
   const { data, loading, error, onInputChange, onUserFetch } = useGitHubUser();
 
   return (
-    <div className="background container flex-vertical">
+    <div className="container flex-vertical">
       <div className="flex-vertical">
         <div className="panel claymorph">
           <label className="flex-horizontal">

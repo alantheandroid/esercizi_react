@@ -35,7 +35,7 @@ export default function ShowGitHubUser() {
   }
 
   return (
-    <div className="background container flex-vertical">
+    <div className="container flex-vertical">
       {loading && (
         <div className="panel claymorph">
           <p>

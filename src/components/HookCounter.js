@@ -5,7 +5,7 @@ export default function HookCounter({ initialValue = 0 }) {
     useCounter(initialValue);
 
   return (
-    <div className="background container flex-vertical">
+    <div className="container flex-vertical">
       <div className="flex-vertical">
         <h1 className="panel claymorph flex-horizontal fill">
           Count: <span className="accentColor">{counter}</span>

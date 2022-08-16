@@ -72,6 +72,7 @@ footer {
   width: auto;
   padding: 2rem;
   border-radius: 1.75rem;
+  text-align: center;
 }
 
 .fill {
@@ -81,7 +82,7 @@ footer {
 
 .flex-horizontal {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: space-evenly;
   gap: 1rem;
@@ -102,11 +103,6 @@ footer {
 .formItem {
   width: 100%;
   justify-content: space-between;
-}
-
-.round {
-  aspect-ratio: 1/1;
-  border-radius: 100%;
 }
 
 .glassmorph {
@@ -153,6 +149,12 @@ footer {
   border-radius: 0.75rem;
   text-decoration: none;
   font-weight: bold;
+  text-align: center;
+}
+
+.homeButton {
+  color: white;
+  background-color: rgba(0, 100, 255, 0.75);
 }
 
 .profilePicture {
@@ -161,4 +163,21 @@ footer {
 
 .transparent {
   background-color: transparent;
+}
+
+.round {
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  padding: 1rem;
+  text-align: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.error404 {
+  height: auto;
+  width: 25rem;
+  border-radius: 1rem;
 }

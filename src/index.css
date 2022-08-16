@@ -146,6 +146,5 @@ select {
 }
 
 .profilePicture {
-  width: 50%;
-  border-radius: 100%;
+  width: 15rem;
 }

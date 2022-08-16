@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HookCounter from "./components/HookCounter";
 import Welcome from "./components/Welcome";
 import HookGitHubUser from "./components/HookGitHubUser";
+import ShowGitHubUser from "./components/ShowGitHubUser";
+
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
@@ -15,6 +17,7 @@ function App() {
       <Route path="/" element={<Welcome name="Alessio" />} />
       <Route path="counter" element={<HookCounter />} />
       <Route path="users/" element={<HookGitHubUser />} />
+      <Route path="users/:username" element={<ShowGitHubUser />} />
     </Routes>
   );
 }

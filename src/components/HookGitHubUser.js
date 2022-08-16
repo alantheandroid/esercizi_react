@@ -5,7 +5,7 @@ export default function HookGitHubUser() {
 
   return (
     <div className="background container flex-vertical">
-      <div className="panel glassmorph">
+      <div className="panel claymorph">
         <label className="flex-horizontal">
           Search for GitHub users:
           <input placeholder="alantheandroid" onChange={onInputChange}></input>
@@ -13,19 +13,19 @@ export default function HookGitHubUser() {
         </label>
       </div>
       {loading && (
-        <div className="panel glassmorph">
+        <div className="panel claymorph">
           <p>
             <i>Loading</i> ⏳
           </p>
         </div>
       )}
       {error && (
-        <div className="panel glassmorph">
+        <div className="panel claymorph">
           <p>User not found! 🤷</p>
         </div>
       )}
       {data && (
-        <div className="flex-vertical panel glassmorph">
+        <div className="flex-vertical panel claymorph">
           <img className="profilePicture" alt="user" src={data.avatar_url} />
           <h1>{data.name}</h1>
           <p>

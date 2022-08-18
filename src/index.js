@@ -19,6 +19,14 @@ function App() {
         <Route path="/" element={<Welcome name="Alessio" />} />
         <Route path="counter" element={<HookCounter />} />
         <Route path="users" element={<GitHubUserList />}>
+          <Route
+            index
+            element={
+              <p className="panel glassmorph">
+                <i>Add a user and select it!</i> ⬆️
+              </p>
+            }
+          />
           <Route path=":username" element={<ShowGitHubUser />} />
         </Route>
         <Route path="*" element={<NotFound />} />

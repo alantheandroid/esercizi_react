@@ -2,12 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 
+import "./index.css";
 import HookCounter from "./components/HookCounter";
 import Welcome from "./components/Welcome";
-import HookGitHubUser from "./components/HookGitHubUser";
+/* import HookGitHubUser from "./components/HookGitHubUser"; */
 import ShowGitHubUser from "./components/ShowGitHubUser";
-
-import "./index.css";
+import NotFound from "./components/NotFound";
+import GitHubUserList from "./components/GitHubUsersList";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
@@ -17,20 +18,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Welcome name="Alessio" />} />
         <Route path="counter" element={<HookCounter />} />
-        <Route path="users" element={<HookGitHubUser />} />
-        <Route path="users/:username" element={<ShowGitHubUser />} />
-        <Route
-          path="*"
-          element={
-            <div className="flex-vertical panel">
-              <img
-                className="error404 glassmorph"
-                alt="Error 404"
-                src="https://http.dog/404.jpg"
-              />
-            </div>
-          }
-        />
+        <Route path="users" element={<GitHubUserList />}>
+          <Route path=":username" element={<ShowGitHubUser />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <footer className="flex-horizontal glassmorph transparent">
         <div className="flex-horizontal">

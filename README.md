@@ -96,7 +96,7 @@
 <details>
 <summary>
 
-## ~~~~Function-components-and-hooks~~~~
+## ~~Function-components-and-hooks~~
 
 </summary>
 
@@ -132,7 +132,7 @@
 - ~~react-router-03~~
 - ~~react-router-04~~
 - ~~react-router-05~~
-- react-router-06
+- ~~react-router-06~~
 - react-router-07
 - swr-01
 - swr-02

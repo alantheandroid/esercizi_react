@@ -35,30 +35,33 @@ export default function ShowGitHubUser() {
   }
 
   return (
-    <div className="container flex-vertical">
+    <div className="panel flex-vertical glassmorph">
       {loading && (
-        <div className="panel claymorph">
+        <div>
           <p>
             <i>Loading</i> ⏳
           </p>
         </div>
       )}
       {error && (
-        <div className="panel claymorph">
+        <div>
           <p>User not found! 🤷</p>
         </div>
       )}
       {data && (
-        <div className="flex-vertical panel claymorph">
+        <div className="flex-horizontal">
           <img
-            className="panel round profilePicture"
+            className="round profilePicture"
             alt="user"
             src={data.avatar_url}
           />
-          <h1 className="accentColor">{data.name}</h1>
-          <p>
-            <i>{data.bio}</i>
-          </p>
+          <div className="flex-vertical">
+            <h1 className="accentColor">{data.name}</h1>
+
+            <p>
+              <i>{data.bio}</i>
+            </p>
+          </div>
         </div>
       )}
     </div>

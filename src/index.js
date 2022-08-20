@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 
 import "./index.css";
-import HookCounter from "./components/HookCounter";
 import Welcome from "./components/Welcome";
-/* import HookGitHubUser from "./components/HookGitHubUser"; */
+import HookCounter from "./components/HookCounter";
 import ShowGitHubUser from "./components/ShowGitHubUser";
 import NotFound from "./components/NotFound";
 import GitHubUserList from "./components/GitHubUsersList";
+import HookGitHubUser from "./components/HookGitHubUser";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
@@ -16,13 +16,15 @@ function App() {
   return (
     <div className="container flex-vertical background">
       <Routes>
-        <Route path="/" element={<Welcome name="Alessio" />} />
+        <Route path="/" element={<Welcome name="Alessio" />}>
+          <Route path=":username" element={<HookGitHubUser />} />
+        </Route>
         <Route path="counter" element={<HookCounter />} />
         <Route path="users" element={<GitHubUserList />}>
           <Route
             index
             element={
-              <p className="panel glassmorph">
+              <p className="panel glassmorph alert">
                 <i>Add a user and select it!</i> ⬆️
               </p>
             }
@@ -34,13 +36,13 @@ function App() {
       <footer className="flex-horizontal glassmorph transparent">
         <div className="flex-horizontal">
           <Link className="linkButton accentColor glassmorph homeButton" to="/">
-            Home
+            🏠 Home
           </Link>
           <Link className="linkButton accentColor glassmorph" to="counter">
-            Counter
+            🔢 Counter
           </Link>
           <Link className="linkButton accentColor glassmorph" to="users">
-            Users
+            🧑 Users
           </Link>
         </div>
       </footer>

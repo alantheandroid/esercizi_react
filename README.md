@@ -123,7 +123,7 @@
 <details>
 <summary>
 
-## External-Libraries
+## ~~External-Libraries~~
 
 </summary>
 
@@ -136,7 +136,7 @@
 - ~~react-router-07~~
 - ~~swr-01~~
 - ~~swr-02~~
-- swr-03
+- ~~swr-03~~
 
 </details>
 

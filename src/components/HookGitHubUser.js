@@ -3,11 +3,15 @@ import useGitHubUser from "../hooks/useGitHubUser";
 
 export default function HookGitHubUser() {
   const { username } = useParams();
-  const { data, error, isloading } = useGitHubUser(username);
+  const { data, error, loading, onDataFetch } = useGitHubUser(username);
+
+  function handleFetchUserData() {
+    onDataFetch();
+  }
 
   return (
     <div className="flex-vertical">
-      {isloading && (
+      {loading && (
         <div className="panel claymorph">
           <p>
             <i>Loading</i> ⏳
@@ -21,6 +25,9 @@ export default function HookGitHubUser() {
       )}
       {data && (
         <div className="fill flex-vertical panel claymorph">
+          <button className="refreshButton" onClick={handleFetchUserData}>
+            🔁
+          </button>
           <img
             className="round profilePicture"
             alt="user"

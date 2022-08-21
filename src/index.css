@@ -143,11 +143,6 @@ footer {
     inset 0px 11px 28px 0px rgb(255, 255, 255);
 }
 
-.alert {
-  color: white;
-  background-color: rgba(255, 0, 0, 0.75);
-}
-
 .linkButton {
   background-color: white;
   padding: 0.75rem 1.5rem;
@@ -164,8 +159,19 @@ footer {
   background-color: rgba(0, 100, 255, 1);
 }
 
+.refreshButton {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
 .profilePicture {
   width: 5rem;
+}
+
+.alert {
+  color: white;
+  background-color: rgba(255, 0, 0, 0.75);
 }
 
 .transparent {
